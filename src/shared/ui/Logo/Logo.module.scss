@@ -1,0 +1,42 @@
+.logo {
+  display: inline-flex;
+  align-items: baseline;
+  padding-inline: fluid(30, 15);
+  gap: 0.08em;
+  font-size: fluid(30, 20);
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+
+}
+
+.text {
+  text-shadow: 0 4px 4px var(--color-gray-dark);
+}
+
+.dot {
+  width: 0.18em;
+  height: 0.18em;
+  flex-shrink: 0;
+  background-color: var(--color-purple-light);
+  border-radius: 50%;
+  transform: translateY(0.05em);
+}
+
+.full {
+  display: inline;
+}
+
+.compact {
+  display: none;
+}
+
+@include tablet-down {
+  .full {
+    display: none;
+  }
+
+  .compact {
+    display: inline;
+  }
+}

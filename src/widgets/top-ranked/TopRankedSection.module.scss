@@ -1,0 +1,164 @@
+.root {
+  width: 100%;
+  min-width: 0;
+  padding-block: fluid-to-laptop(16, 10);
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.rootInline {
+  padding-inline: fluid(50, 24);
+}
+
+.rankedList {
+  list-style: none;
+}
+
+.rankedListSidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.rankedListInline {
+  display: flex;
+  gap: 16px;
+  padding-block: fluid-to-laptop(20, 16);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 16px;
+  -ms-overflow-style: none;
+}
+
+.rankedListInline::-webkit-scrollbar {
+  display: none;
+}
+
+.rankedItem {
+  --poster-width: 70px;
+  --poster-height: 92px;
+  --title-size: 14px;
+  --genres-size: 12px;
+  --text-gap: 6px;
+  --main-gap: 8px;
+  --text-min-height: 64px;
+}
+
+.rankedItemInline {
+  --poster-width: 96px;
+  --poster-height: 128px;
+  --title-size: 16px;
+  --genres-size: 14px;
+  --text-min-height: 78px;
+
+  flex: 0 0 360px;
+  scroll-snap-align: start;
+}
+
+.rankedLink {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: fluid-to-laptop(12, 8);
+  padding: fluid-to-laptop(14, 10) fluid-to-laptop(8, 6);
+  border-bottom: var(--border-gray);
+  border-radius: var(--border-radius-l);
+  transition: background-color var(--transition-duration-longer) ease;
+  cursor: pointer;
+
+  @include hover {
+    background-color: var(--color-purple-hover);
+
+    .poster {
+      transform: scale(1.04);
+    }
+  }
+
+  &:focus-visible {
+    @include focus-visible;
+  }
+}
+
+.rankedNumber {
+  display: flex;
+  flex: 0 0 40px;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gray);
+  font-size: 25px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.gold,
+.violet,
+.pink {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold {
+  background-image: linear-gradient(180deg, #ffd96f 0%, #f5a713 100%);
+}
+
+.violet {
+  background-image: linear-gradient(180deg, #b8a7ff 0%, #6757ec 100%);
+}
+
+.pink {
+  background-image: linear-gradient(180deg, #ff93c2 0%, #f54797 100%);
+}
+
+.poster {
+  width: var(--poster-width);
+  height: var(--poster-height);
+  flex: 0 0 var(--poster-width);
+  overflow: hidden;
+  object-fit: cover;
+  border-radius: var(--border-radius-l);
+  transition: transform var(--transition-duration-longer) ease;
+}
+
+.mainInfo {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--main-gap);
+}
+
+.textInfo {
+  display: flex;
+  min-height: var(--text-min-height);
+  flex-direction: column;
+  gap: var(--text-gap);
+}
+
+.animeTitle {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  font-size: var(--title-size);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.genres {
+  color: var(--color-purple-white);
+  font-size: var(--genres-size);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.rating {
+  width: auto;
+}

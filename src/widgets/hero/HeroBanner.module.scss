@@ -1,0 +1,211 @@
+.heroBanner {
+  position: relative;
+  overflow: hidden;
+  min-height: fluid(640, 420);
+  background-color: var(--color-purple-bg);
+}
+
+.heroBanner::before {
+  content: '';
+  @include abs-cover;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+      180deg,
+      rgba(16, 12, 28, 0) 0%,
+      rgba(16, 12, 28, 0.06) 34%,
+      rgba(16, 12, 28, 0.14) 48%,
+      rgba(16, 12, 28, 0.28) 62%,
+      rgba(16, 12, 28, 0.46) 74%,
+      rgba(16, 12, 28, 0.68) 84%,
+      rgba(16, 12, 28, 0.86) 91%,
+      var(--color-purple-bg) 97%,
+      var(--color-purple-bg) 100%
+  );
+}
+
+.heroBanner::after {
+  content: '';
+  @include abs-cover;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+      90deg,
+      rgba(20, 15, 33, 0.96) 0%,
+      rgba(20, 15, 33, 0.78) 22%,
+      rgba(20, 15, 33, 0.46) 42%,
+      rgba(20, 15, 33, 0.18) 58%,
+      rgba(20, 15, 33, 0) 72%
+  );
+}
+
+.image {
+   position: absolute;
+   inset: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   object-position: 55% center;
+ }
+
+.inner {
+  @include abs-cover;
+  display: flex;
+  z-index: 2;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: fluid(90, 62) fluid(50, 24);
+
+  @include mobile {
+    align-items: center;
+    padding: fluid(40, 24) fluid(20, 12);
+  }
+
+}
+
+.body {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: fluid(30, 20);
+
+
+  @include mobile {
+    width: 100%;
+    align-items: center;
+
+  }
+}
+
+.header {
+  @include flex-center;
+  gap: 16px;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: fluid-to-laptop(12, 8);
+  @include fluid-text(16, 12);
+}
+
+.title {
+  margin: 0;
+
+}
+
+.description {
+  color: var(--color-gray-bright);
+  line-height: 1.5;
+  max-width: 40rem;
+
+  @include fluid-text(18, 14);
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: flex-start;
+  column-gap: fluid-to-laptop(24, 12);
+
+
+  @include mobile {
+    width: 100%;
+    align-self: stretch;
+    justify-content: space-around;
+    align-items: baseline;
+    transform: translateY(1rem);
+
+  }
+
+}
+
+.actionButton {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 4px;
+
+  @include hover {
+
+    .actionControl {
+      color: var(--color-white);
+      border-color: var(--color-white);
+    }
+    .actionLabel {
+      color: var(--color-white);
+    }
+
+  }
+}
+
+.actionLabel {
+  @include fluid-text(18, 14);
+  color: var(--color-gray-bright);
+  transition: color var(--transition-duration);
+}
+
+.popover {
+  position: absolute;
+  left: calc(100% + 16px);
+  top: 50%;
+  transform: translateY(-35%);
+  z-index: 4;
+  width: max-content;
+  max-width: min(320px, calc(100vw - 32px));
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
+
+  @include mobile {
+    display: none;
+  }
+
+}
+
+
+.popoverOpen {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+}
+
+.infoPanel {
+  display: none;
+  @include mobile {
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    opacity: 0;
+    padding-inline: fluid(20, 12);
+    transition:
+      grid-template-rows 0.25s ease,
+      opacity 0.2s ease;
+  }
+}
+.infoPanelOpen {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.infoPanelInner {
+  min-height: 0;
+  padding-block: 16px 24px;
+  border-top: var(--border-gray);
+}

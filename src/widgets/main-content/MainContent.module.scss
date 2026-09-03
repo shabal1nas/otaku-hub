@@ -1,0 +1,14 @@
+ .mainContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+ }
+
+.topRankedCompact {
+  display: none;
+
+  @include tablet-down {
+    display: block;
+    min-width: 0;
+  }
+}

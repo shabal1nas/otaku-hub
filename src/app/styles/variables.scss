@@ -1,0 +1,64 @@
+:root {
+  --color-white: #E5E5E5;
+  --color-soft-white: #d8d5e6;
+  --color-black: #000000;
+
+  --color-purple-white: #8b7fb0;
+  --color-purple-light: #635985;
+  --color-purple-bright: #6F4FA4;
+  --color-purple-bright-02: #a670ff;
+  --color-rating-excellent: #9f93ff;
+  --color-purple-pale: #443c68;
+  --color-purple-dark: #322a48;
+  --color-purple: #261b48;
+  --color-purple-bg-light: #1d1634;
+  --color-purple-bg: #140f21;
+  --color-purple-opacity: rgba(156, 67, 217, 0.5);
+  --color-purple-hover: rgba(105, 82, 131, 0.24);
+  --color-pink: #ee4a99;
+  --color-green: #54a857;
+  --color-red: #c91414;
+
+
+  --color-gray: rgba(255, 255, 255, 0.19);
+  --color-gray-bright: #b3a9bb;
+  --color-gray-dark: #00000040;
+
+  --color-prime: #f6dc6c;
+  --color-masterpiece: #faa300;
+
+  --box-shadow: 0 4px 4px 0 var(--color-gray-dark);
+
+  --border-gray: var(--border-width-s) solid var(--color-gray);
+  --border-purple: var(--border-width-s) solid var(--color-purple-bright);
+  --border-purple-wide: var(--border-width-m) solid var(--color-purple-bright);
+
+  --border-radius-xxl: 30px;
+  --border-radius-xl: 25px;
+  --border-radius-l: 16px;
+  --border-radius-m: 11px;
+  --border-radius-s: 8px;
+  --border-radius-xs: 6px;
+  --border-radius-xxs: 4px;
+
+  --border-width-xl: 6px;
+  --border-width-l:  4px;
+  --border-width-m:  3px;
+  --border-width-s:  1px;
+
+  --font-family-base: 'Poppins', sans-serif;
+
+  --container-width: 1440px;
+  --container-padding-x: 16px;
+
+  --mobile-nav-height: #{fluid(78, 72)};
+  --section-padding-y: #{fluid(72, 40)};
+  --content-gap: #{fluid(32, 16)};
+  --card-gap: #{fluid(24, 12)};
+
+  --field-padding-x: #{fluid-to-laptop(20, 16)};
+
+  --transition-duration: 0.2s;
+  --transition-duration-longer: 0.4s;
+
+}

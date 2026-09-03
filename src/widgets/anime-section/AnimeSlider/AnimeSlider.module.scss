@@ -1,0 +1,101 @@
+.animeSlider {
+  --card-width: 220px;
+  --poster-height: calc(var(--card-width) * 4 / 3);
+  --list-padding-y: #{fluid-to-laptop(16, 8)};
+
+  position: relative;
+
+  @include hover(false) {
+    .arrow {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+  }
+
+  @include mobile {
+    .arrow {
+      display: none;
+    }
+  }
+}
+
+.list {
+  display: flex;
+  gap: 16px;
+  padding-block: var(--list-padding-y);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 16px;
+  -ms-overflow-style: none;
+}
+
+.list::-webkit-scrollbar {
+  display: none;
+}
+
+.item {
+  flex: 0 0 var(--card-width);
+  scroll-snap-align: start;
+
+  @include mobile {
+    --card-width: 150px;
+  }
+}
+
+.arrow {
+  @include flex-center(true);
+
+  position: absolute;
+  top: calc(var(--list-padding-y) + (var(--poster-height) / 2));
+  transform: translateY(-50%);
+  z-index: 2;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  width: 40px;
+  height: 40px;
+
+  line-height: 1;
+
+  color: var(--color-white);
+  background-color: rgba(24, 18, 48, 0.85);
+  backdrop-filter: blur(8px);
+
+  border-radius: var(--border-radius-xxl);
+  border: var(--border-gray);
+
+  transition:
+    opacity var(--transition-duration-longer) ease,
+    background-color var(--transition-duration) ease,
+    color var(--transition-duration) ease;
+
+  @include hover {
+    color: var(--color-gray-bright);
+    background-color: rgba(40, 28, 80, 0.95);
+  }
+}
+
+.arrow svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  transform: translateX(1px);
+}
+
+.arrowLeft {
+  left: 0;
+}
+
+.arrowLeft svg {
+  transform: rotate(180deg) translateX(1px);
+}
+
+.arrowRight {
+  right: 0;
+}

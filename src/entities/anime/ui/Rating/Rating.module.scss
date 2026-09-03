@@ -1,0 +1,168 @@
+.masterpiece {
+  --rating-color: var(--color-masterpiece);
+  --rating-bg: rgba(121, 81, 28, 0.5);
+}
+
+.excellent {
+  --rating-color: var(--color-rating-excellent);
+  --rating-bg: var(--color-purple-opacity);
+}
+
+.veryGood {
+  --rating-color: var(--color-gray-bright);
+  --rating-bg: rgba(192, 163, 220, 0.5);
+}
+
+.root {
+  display: inline-flex;
+  align-items: center;
+  color: var(--rating-color);
+}
+
+.badge {
+  gap: 6px;
+}
+
+.progress {
+  gap: 8px;
+}
+
+.progressTrack {
+  position: relative;
+  overflow: hidden;
+  width: 100px;
+  height: 4px;
+  flex-shrink: 0;
+  background-color: var(--color-gray);
+  border-radius: 999px;
+}
+
+.progressFill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: inherit;
+  width: var(--progress-width);
+  background: linear-gradient(
+      90deg,
+      var(--color-gray-bright) 0%,
+      var(--color-rating-excellent) 55%,
+      var(--color-masterpiece) 100%
+  );
+}
+
+.value {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transform: translateY(1px);
+}
+
+.rating {
+  font-weight: 600;
+  line-height: 1;
+}
+
+.maxRating {
+  opacity: 0.7;
+  font-size: 0.9em;
+  line-height: 1;
+}
+
+.icon {
+  display: block;
+  flex-shrink: 0;
+}
+
+.withFrame {
+  border: var(--border-width-s) solid currentColor;
+  white-space: nowrap;
+  background-color: var(--rating-bg);
+
+}
+
+.hero {
+  .rating {
+    font-size: 18px;
+  }
+  .icon {
+    width: 22px;
+    height: 22px;
+  }
+  &.withFrame {
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: var(--border-radius-xl);
+  }
+
+  @include tablet-down {
+    .rating {
+      font-size: 15px;
+    }
+    .icon {
+      width: 18px;
+      height: 18px;
+    }
+    &.withFrame {
+      gap: 4px;
+      padding: 6px 12px;
+      border-radius: var(--border-radius-xl);
+    }
+  }
+}
+
+.card {
+  .rating {
+    font-size: 16px;
+    font-weight: 400;
+
+  }
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+  &.withFrame {
+    gap: 3px;
+    padding: 6px 10px;
+    border-radius: var(--border-radius-m);
+  }
+
+  @include mobile {
+    .rating {
+      font-size: 12px;
+    }
+    .icon {
+      width: 14px;
+      height: 14px;
+    }
+    .value {
+      gap: 4px;
+    }
+    &.withFrame {
+      gap: 3px;
+      padding: 3px 7px;
+      border-radius: var(--border-radius-s);
+    }
+}
+}
+
+.compact {
+  .rating {
+    font-size: 12px;
+  }
+  .icon {
+    width: 16px;
+    height: 16px;
+  }
+  .value {
+    gap: 4px;
+  }
+  .progressTrack {
+    width: fluid(72, 64);
+  }
+  &.withFrame {
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: var(--border-radius-s);
+  }
+}
+

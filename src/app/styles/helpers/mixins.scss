@@ -1,0 +1,95 @@
+@use 'functions' as *;
+
+@mixin fluid-text($max: 48, $min: 16) {
+  font-size: fluid($max, $min);
+}
+
+@mixin flex-center ($isInline: false) {
+   @if ($isInline) {
+     display: inline-flex;
+   }
+  @else {
+     display: flex;
+   }
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin abs-cover {
+  position: absolute;
+  inset: 0;
+}
+
+@mixin abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+@mixin abs-y {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+}
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin focus-visible {
+  outline: 2px solid var(--color-purple-bright);
+  outline-offset: 2px;
+  border-radius: var(--border-radius-l);
+  transition-duration: 0s !important;
+}
+
+@mixin disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@mixin custom-scrollbar (
+  $thumb-color: rgba(255, 255, 255, 0.24),
+  $thumb-hover-color: rgba(255, 255, 255, 0.36),
+  $track-color: transparent,
+  $size: 8px,
+  $border-radius: 999px,
+) {
+  scrollbar-width: thin;
+  scrollbar-color: #{$thumb-color} #{$track-color};
+
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $track-color;
+    border-radius: $border-radius;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $thumb-color;
+    border-radius: $border-radius;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $thumb-hover-color;
+  }
+}
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}

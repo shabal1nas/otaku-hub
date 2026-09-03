@@ -1,0 +1,1 @@
+export { AnimeInfoDetails } from './AnimeInfoDetails'

@@ -1,0 +1,18 @@
+.animeSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-block: fluid-to-laptop(14, 8);
+  padding-inline: fluid(50, 24);
+
+}
+.title {
+  @include mobile {
+    font-size: 1rem;
+  }
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

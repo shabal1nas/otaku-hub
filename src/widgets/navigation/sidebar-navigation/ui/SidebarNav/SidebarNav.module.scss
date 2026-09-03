@@ -1,0 +1,21 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  padding-top: fluid(35, 20);
+  border-right: var(--border-gray);
+}
+
+.logoNav {
+  @include flex-center;
+  padding-bottom: fluid(40, 20);
+  border-bottom: var(--border-gray);
+}
+
+.mainNav {
+  flex: 1;
+}
+
+.secondaryNav {
+  border-top: var(--border-gray);
+}
