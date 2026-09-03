@@ -29,7 +29,7 @@ const mapRating = (score: number | null): number => {
 
 const mapStatus = (status: AnimeDto['status']): AnimeStatus => {
   if (status === 'RELEASING' || status === 'HIATUS' || status === 'NOT_YET_RELEASED') return 'ongoing';
-  if (status === 'CANCELLED') return 'cancel';
+  if (status === 'CANCELLED') return 'cancelled';
   return 'finished'
 }
 
