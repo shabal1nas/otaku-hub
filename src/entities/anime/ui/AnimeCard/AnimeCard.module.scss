@@ -7,12 +7,20 @@
   @include hover {
     .poster {
       transform: scale(1.04);
+      filter: brightness(0.6);
+    }
+    .playIcon {
+      opacity: 1;
     }
   }
-}
 
-.card:focus-visible  {
-  outline: none;
+  &:focus-visible {
+    outline: none;
+  }
+
+  &:focus-visible .playIcon {
+    opacity: 1;
+  }
 }
 
 .posterWrap {
@@ -60,12 +68,26 @@
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
-  transition: transform var(--transition-duration) ease;
+  filter: brightness(1);
+  transition:
+    transform var(--transition-duration) ease,
+    filter var(--transition-duration) ease;
+}
+.playIcon {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  color: var(--color-white);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-duration) ease;
+}
 
-  @include hover {
-    transform: scale(1.04);
-
-  }
+.playIcon svg {
+  width: 44px;
+  height: 44px;
 }
 
 .rating {

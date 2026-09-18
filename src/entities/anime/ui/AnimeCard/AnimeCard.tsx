@@ -3,6 +3,7 @@ import { Rating } from '@/entities/anime/ui/Rating';
 import styles from './AnimeCard.module.scss'
 import { Link } from "react-router";
 import {getAnimeDetailsRoute} from "@/app/providers/router/routes";
+import { Icon } from "@/shared/ui/Icon";
 
 type AnimeCardProps = {
   anime: Anime;
@@ -17,6 +18,11 @@ export const AnimeCard = ({ anime } : AnimeCardProps) => {
           src={anime.poster}
           alt={anime.title}
         />
+        <span
+          aria-hidden={true}
+          className={styles.playIcon}>
+          <Icon name="play" />
+        </span>
         <Rating
           className={styles.rating}
           rating={anime.rating}
