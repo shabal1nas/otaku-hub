@@ -28,6 +28,7 @@ export const iconMap = {
   play: Play,
   plus: Plus,
   star: Star,
+  arrowLeft: ArrowRight,
   arrowRight: ArrowRight,
   arrowZigZag: ArrowZigZag,
 } satisfies Record<string, IconType>

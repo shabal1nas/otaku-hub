@@ -29,7 +29,7 @@ export const TopRankedSection = ({ variant, items } : TopRankedProps) => {
     ? items.slice(0, 8)
     : items.slice(0, 5);
 
-  const { listRef } = useHorizontalScroll<HTMLOListElement>()
+  const { listRef } = useHorizontalScroll<HTMLOListElement>(topRanked.length)
 
   return (
     <section className={classNames(styles.root, {

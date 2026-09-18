@@ -12,12 +12,18 @@ type AnimeSliderProps = {
 
 export const AnimeSlider = ({ items }: AnimeSliderProps) => {
 
-  const { listRef, scrollLeft, scrollRight } = useHorizontalScroll<HTMLOListElement>()
+  const { listRef, scrollLeft, scrollRight, canScrollLeft, canScrollRight } = useHorizontalScroll<HTMLOListElement>(items.length)
 
   return (
     <div className={styles.animeSlider}>
-      <button aria-label="Previous anime" className={classNames(styles.arrow, styles.arrowLeft)} onClick={scrollLeft}>
-        <Icon name="arrowRight" />
+      <button
+        type="button"
+        aria-label="Previous anime"
+        className={classNames(styles.arrow, styles.arrowLeft)}
+        onClick={scrollLeft}
+        disabled={!canScrollLeft}
+      >
+        <Icon name="arrowLeft" />
       </button>
       <ul ref={listRef} className={styles.list}>
         {items.map((animeItem) => (
@@ -26,7 +32,13 @@ export const AnimeSlider = ({ items }: AnimeSliderProps) => {
           </li>
         ))}
       </ul>
-      <button aria-label="Next anime" className={classNames(styles.arrow, styles.arrowRight)} onClick={scrollRight}>
+      <button
+        type="button"
+        aria-label="Next anime"
+        className={classNames(styles.arrow, styles.arrowRight)}
+        onClick={scrollRight}
+        disabled={!canScrollRight}
+      >
         <Icon name="arrowRight" />
       </button>
     </div>

@@ -6,7 +6,7 @@
   position: relative;
 
   @include hover(false) {
-    .arrow {
+    .arrow:not(:disabled) {
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
@@ -79,6 +79,7 @@
     color: var(--color-gray-bright);
     background-color: rgba(40, 28, 80, 0.95);
   }
+
 }
 
 .arrow svg {
@@ -98,4 +99,10 @@
 
 .arrowRight {
   right: 0;
+}
+
+.arrow:disabled {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
