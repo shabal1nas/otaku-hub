@@ -4,20 +4,33 @@ import { RightPanel } from '@/widgets/right-panel/RightPanel';
 import { MobileNav } from '@/widgets/navigation/mobile-navigation';
 import {
   getActionAdventureAnime, getDramaRomanceAnime,
-  getHeroAnime, getPopularAnime,
-  getTopRankedAnime
+  getHeroAnime, getTopRankedAnime
 } from '@/entities/anime/lib/selectors';
 import { animeList } from "@/entities/anime/model/mock";
 import styles from './HomePage.module.scss';
 import {PageState} from "@/shared/ui/PageState";
 import {Button} from "@/shared/ui/button";
+import { useQuery } from "@tanstack/react-query";
+import { getPopularAnime } from '@/entities/anime/api/animeAPI';
 
 
 export const HomePage = () => {
 
+  const page = 1;
+  const perPage = 12;
+
+  const {
+    data: popularAnimeQuery = [],
+  } = useQuery({
+    queryKey: ['anime', 'popular', { page, perPage }],
+    queryFn: () => getPopularAnime({ page, perPage }),
+  });
+
+  const popularAnime = popularAnimeQuery ?? [];
+
   const topRankedAnime = getTopRankedAnime(animeList);
   const heroAnime = getHeroAnime(animeList);
-  const popularAnime = getPopularAnime(animeList)
+
   const actionAdventure = getActionAdventureAnime(animeList);
   const dramaRomance = getDramaRomanceAnime(animeList)
 
@@ -41,7 +54,6 @@ export const HomePage = () => {
       />
     );
   }
-
 
   return (
     <>
