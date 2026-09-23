@@ -1,11 +1,10 @@
 import classNames from "classnames";
 import { Anime } from "@/entities/anime/model/types";
-import {getAnimeDetailsRoute} from "@/app/providers/router/routes";
+import { getAnimeDetailsRoute } from "@/app/providers/router/routes";
 import { Link } from "react-router";
 import { Genres } from '@/entities/anime/ui/Genres';
 import { Rating } from '@/entities/anime/ui/Rating';
 import styles from './TopRankedSection.module.scss';
-import { useHorizontalScroll } from "@/shared/lib/useHorizontalScroll";
 
 
 type TopRankedProps = {
@@ -29,14 +28,11 @@ export const TopRankedSection = ({ variant, items } : TopRankedProps) => {
     ? items.slice(0, 8)
     : items.slice(0, 5);
 
-  const { listRef } = useHorizontalScroll<HTMLOListElement>(topRanked.length)
-
   return (
     <section className={classNames(styles.root, {
       [styles.rootInline] : isInline
     })}>
       <ol
-        ref={isInline ? listRef : null}
         className={classNames(styles.rankedList, {
           [styles.rankedListInline] : isInline,
           [styles.rankedListSidebar] : isSidebar,
