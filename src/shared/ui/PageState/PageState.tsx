@@ -41,7 +41,11 @@ const PAGE_STATE_CONTENT: Record<PageStateVariant, PageStateContent> = {
 
 
 export const PageState = ({
-  variant, size = 'default',title, description, action,
+  variant,
+  size = 'default',
+  title,
+  description,
+  action
 }: PageStateProps) => {
 
   const content = PAGE_STATE_CONTENT[variant];

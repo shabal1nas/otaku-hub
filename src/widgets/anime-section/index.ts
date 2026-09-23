@@ -1,1 +1,2 @@
-export { AnimeSection } from './AnimeSection/AnimeSection'
+export { AnimeSection } from './AnimeSection/AnimeSection';
+export { PopularAnimeSection } from './PopularAnimeSection';

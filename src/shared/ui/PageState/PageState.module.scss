@@ -47,13 +47,17 @@
     border-width: 4px;
   }
   .title {
-    font-size: 14px;
+    font-size: 16px;
   }
   .description {
     display: none;
   }
   .image {
    display: none;
+  }
+  .action > button {
+    padding: 10px 20px;
+    font-size: 16px;
   }
 }
 

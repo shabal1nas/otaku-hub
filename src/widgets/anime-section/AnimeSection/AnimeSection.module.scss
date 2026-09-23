@@ -16,3 +16,12 @@
   justify-content: space-between;
   align-items: center;
 }
+.state {
+  display: grid;
+  place-items: center;
+  min-height: 340px;
+
+  @include mobile {
+    min-height: 240px;
+  }
+}
