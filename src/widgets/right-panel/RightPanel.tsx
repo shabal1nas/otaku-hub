@@ -2,7 +2,6 @@ import { Icon } from '@/shared/ui/Icon';
 import classNames from "classnames";
 import styles from './RightPanel.module.scss';
 import { TopRankedSection } from "@/widgets/top-ranked";
-import type { Anime } from "@/entities/anime/model/types";
 
 type ScoreGuideTone = 'masterpiece' | 'excellent' | 'veryGood'
 
@@ -11,9 +10,7 @@ type ScoreGuideItem = {
   value: string;
   tone: ScoreGuideTone;
 }
-type RightPanelProps = {
-  topRankedAnime: Anime[],
-}
+
 
 const scoreGuideItems: ScoreGuideItem[] = [
   {
@@ -33,7 +30,7 @@ const scoreGuideItems: ScoreGuideItem[] = [
   },
 ];
 
-export const RightPanel = ({ topRankedAnime } : RightPanelProps) => {
+export const RightPanel = () => {
 
   return (
     <aside className={styles.rightPanel}>
@@ -47,7 +44,7 @@ export const RightPanel = ({ topRankedAnime } : RightPanelProps) => {
         </p>
       </div>
       <div className={styles.body}>
-        <TopRankedSection variant="sidebar" items={topRankedAnime}/>
+        <TopRankedSection variant="sidebar" />
       </div>
       <div className={styles.footer}>
         <div className={styles.footerWrap}>

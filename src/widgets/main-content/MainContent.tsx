@@ -5,14 +5,12 @@ import { TopRankedSection } from "@/widgets/top-ranked";
 import type { Anime } from "@/entities/anime/model/types";
 
 type MainContentProps = {
-  topRankedAnime: Anime[],
   heroAnime: Anime | null,
   actionAdventure: Anime[],
   dramaRomance: Anime[],
 }
 
 export const MainContent = ({
-  topRankedAnime,
   heroAnime,
   actionAdventure,
   dramaRomance,
@@ -31,7 +29,7 @@ export const MainContent = ({
         titleId={titleId}
       />
       <div className={styles.topRankedCompact}>
-        <TopRankedSection variant="inline" items={topRankedAnime}/>
+        <TopRankedSection variant="inline" />
       </div>
       <PopularAnimeSection />
       <AnimeSection title="Action & Adventure" items={actionAdventure} />

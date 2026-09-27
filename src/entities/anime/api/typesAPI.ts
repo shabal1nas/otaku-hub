@@ -6,6 +6,12 @@ export type AniListAnimeStatusDto =
   | 'CANCELLED'
   | 'HIATUS';
 
+export type AniListSeasonDto =
+  | 'WINTER'
+  | 'SPRING'
+  | 'SUMMER'
+  | 'FALL';
+
 export type AnimeStudioDto = {
   name: string;
 }
@@ -34,6 +40,7 @@ export type AnimeDto = {
   studios: {
     nodes: AnimeStudioDto[];
   };
+
 };
 
 export type AnimeListResponseDto = {
@@ -53,4 +60,6 @@ export type AnimeListVariablesDto = {
   perPage: number;
   sort: AnimeSortDto[];
   genre?: string;
+  season?: AniListSeasonDto;
+  seasonYear?: number;
 }

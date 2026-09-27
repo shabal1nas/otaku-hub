@@ -3,10 +3,18 @@ export const ANIME_LIST_QUERY = `
     $page: Int,
     $perPage: Int,
     $sort: [MediaSort],
-    $genre: String
+    $genre: String,
+    $season: MediaSeason,
+    $seasonYear: Int,
   ) {
     Page(page: $page, perPage: $perPage) {
-      media(type: ANIME, sort: $sort, genre: $genre) {
+      media(
+      type: ANIME,
+      sort: $sort,
+      genre: $genre,
+      season: $season,
+      seasonYear: $seasonYear
+      ) {
         id
         title {
           english

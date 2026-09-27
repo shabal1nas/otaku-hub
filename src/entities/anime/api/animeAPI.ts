@@ -2,6 +2,7 @@ import { mapAnimeDtoToAnime } from "@/entities/anime/model/mappers";
 import type {
   AnimeListResponseDto,
   AnimeListVariablesDto,
+  AniListSeasonDto,
 } from "@/entities/anime/api/typesAPI";
 import type { Anime } from "@/entities/anime/model/types";
 import { fetchAniList } from "@/shared/api/anilist";
@@ -21,10 +22,17 @@ export const getAnimeList = async(
 type AnimeListParams = {
    page?: number,
    perPage?:number,
-}
+};
+
 type AnimeByGenreParams = AnimeListParams & {
    genre: string,
-}
+};
+
+type TopRankedAnimeParams = AnimeListParams & {
+  season: AniListSeasonDto;
+  seasonYear: number;
+};
+
 export const getPopularAnime = ({
   page = 1,
   perPage = 12
@@ -38,12 +46,16 @@ export const getPopularAnime = ({
 
 export const getTopRankedAnime = ({
   page = 1,
-  perPage = 12
-}: AnimeListParams = {}):Promise<Anime[]> => {
+  perPage = 8,
+  season,
+  seasonYear
+}: TopRankedAnimeParams):Promise<Anime[]> => {
   return getAnimeList({
     page,
     perPage,
-    sort:['SCORE_DESC']
+    sort:['SCORE_DESC'],
+    season,
+    seasonYear,
   });
 };
 

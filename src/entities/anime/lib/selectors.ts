@@ -17,10 +17,3 @@ export const getDramaRomanceAnime = (items: Anime[]) =>
       animeItem.genres.includes('Romance')
   )
 
-export const getTopRankedAnime = (items: Anime[]) =>
-  [...items].sort((a, b) => b.rating - a.rating);
-
-export const getPopularAnime = (items: Anime[]) => items;
-
-
-
