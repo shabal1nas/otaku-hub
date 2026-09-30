@@ -9,8 +9,12 @@
 }
 
 .veryGood {
-  --rating-color: var(--color-gray-bright);
-  --rating-bg: rgba(192, 163, 220, 0.5);
+  --rating-color: var(--color-rating-very-good);
+  --rating-bg: rgba(108, 78, 145, 0.5);
+}
+.default {
+  --rating-color: var(--color-rating-default);
+  --rating-bg: rgba(154, 153, 153, 0.5);
 }
 
 .root {
@@ -44,9 +48,8 @@
   width: var(--progress-width);
   background: linear-gradient(
       90deg,
-      var(--color-gray-bright) 0%,
-      var(--color-rating-excellent) 55%,
-      var(--color-masterpiece) 100%
+      var(--color-rating-default),
+      var(--rating-color)
   );
 }
 

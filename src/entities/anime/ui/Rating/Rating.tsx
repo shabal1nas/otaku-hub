@@ -3,7 +3,7 @@ import { Icon } from '@/shared/ui/Icon';
 import styles from './Rating.module.scss';
 import { CSSProperties } from 'react';
 
-type RatingTone = 'masterpiece' | 'excellent' | 'veryGood';
+type RatingTone = 'masterpiece' | 'excellent' | 'veryGood' | 'default';
 type RatingVariant = 'badge' | 'progress';
 type RatingPreset = 'hero' | 'card' | 'compact';
 
@@ -19,8 +19,10 @@ type RatingProps = {
 
 const getRatingTone = (rating: number): RatingTone => {
   if (rating >= 9) return 'masterpiece';
-  if (rating >= 8.5) return 'excellent';
-  return 'veryGood';
+  if (rating >= 8) return 'excellent';
+  if (rating >= 7) return 'veryGood';
+
+  return 'default';
 }
 
 export const Rating = (props: RatingProps) => {
@@ -36,10 +38,10 @@ export const Rating = (props: RatingProps) => {
 
   const resolvedTone = tone ?? getRatingTone(rating);
   const displayRating = rating.toFixed(1);
-  const min = 5;
-  const max = 10;
-  const normalized = ((rating - min) / (max - min)) * 100;
-  const progressWidth = Math.min(100, Math.max(0, normalized))
+  const progressWidth = Math.min(
+    100,
+    Math.max(0, rating * 10)
+  );
   const isFramed = withFrame ?? (preset !== 'compact')
 
 
