@@ -20,7 +20,7 @@ export const AsyncDataState = ({
 
   if (isPending) {
     return <PageState variant="loading" size="compact" />;
-  };
+  }
 
   if (isError && isEmpty) {
     return (
@@ -34,11 +34,11 @@ export const AsyncDataState = ({
         }
       />
     )
-  };
+  }
 
   if (isEmpty) {
     return <PageState variant="empty" size="compact" />
-  };
+  }
 
   return children;
 }

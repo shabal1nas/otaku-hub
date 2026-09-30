@@ -12,8 +12,14 @@ export const PopularAnimeSection = () => {
     isError,
     refetch
   } = useQuery({
-    queryKey: ['anime', 'popular', { page: PAGE, perPage: PER_PAGE }],
-    queryFn: () => getPopularAnime({ page: PAGE, perPage: PER_PAGE }),
+    queryKey: [
+      'anime',
+      'popular',
+      { page: PAGE, perPage: PER_PAGE }
+    ],
+    queryFn: () => getPopularAnime(
+      { page: PAGE, perPage: PER_PAGE }
+    ),
   });
 
   return (
