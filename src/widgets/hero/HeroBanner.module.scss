@@ -176,19 +176,17 @@
   @include mobile {
     display: none;
   }
-
 }
-
 
 .popoverOpen {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-
 }
 
 .infoPanel {
   display: none;
+
   @include mobile {
     display: grid;
     grid-template-rows: 0fr;
@@ -200,12 +198,21 @@
       opacity 0.2s ease;
   }
 }
+
+.infoPanelInner {
+  min-height: 0;
+  padding-block: 0;
+  border-top: 0;
+  overflow: hidden;
+  transition: padding-block 0.25s ease;
+}
+
 .infoPanelOpen {
   grid-template-rows: 1fr;
   opacity: 1;
-}
-.infoPanelInner {
-  min-height: 0;
-  padding-block: 16px 24px;
-  border-top: var(--border-gray);
+
+  .infoPanelInner {
+    padding-block: 8px 10px;
+    border-top: var(--border-gray);
+  }
 }
