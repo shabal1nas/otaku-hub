@@ -3,7 +3,7 @@ export const ANIME_LIST_QUERY = `
     $page: Int,
     $perPage: Int,
     $sort: [MediaSort],
-    $genre: String,
+    $genres: [String],
     $season: MediaSeason,
     $seasonYear: Int,
   ) {
@@ -11,7 +11,7 @@ export const ANIME_LIST_QUERY = `
       media(
       type: ANIME,
       sort: $sort,
-      genre: $genre,
+      genre_in: $genres,
       season: $season,
       seasonYear: $seasonYear
       ) {

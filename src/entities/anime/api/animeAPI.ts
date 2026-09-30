@@ -25,7 +25,7 @@ type AnimeListParams = {
 };
 
 type AnimeByGenreParams = AnimeListParams & {
-   genre: string,
+   genres: string[],
 };
 
 type TopRankedAnimeParams = AnimeListParams & {
@@ -49,7 +49,7 @@ export const getTopRankedAnime = ({
   perPage = 8,
   season,
   seasonYear
-}: TopRankedAnimeParams):Promise<Anime[]> => {
+}:TopRankedAnimeParams):Promise<Anime[]> => {
   return getAnimeList({
     page,
     perPage,
@@ -59,15 +59,15 @@ export const getTopRankedAnime = ({
   });
 };
 
-export const getAnimeByGenre = ({
-  genre,
+export const getAnimeByGenres = ({
   page = 1,
   perPage = 12,
+  genres
 }:AnimeByGenreParams):Promise<Anime[]> => {
   return getAnimeList({
     page,
     perPage,
     sort:['POPULARITY_DESC'],
-    genre
+    genres,
   });
 };

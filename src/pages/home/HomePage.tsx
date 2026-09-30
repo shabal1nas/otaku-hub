@@ -2,10 +2,7 @@ import { SidebarNav } from '@/widgets/navigation/sidebar-navigation/ui/SidebarNa
 import { MainContent } from '@/widgets/main-content/MainContent';
 import { RightPanel } from '@/widgets/right-panel/RightPanel';
 import { MobileNav } from '@/widgets/navigation/mobile-navigation';
-import {
-  getActionAdventureAnime,
-  getDramaRomanceAnime,
-  getHeroAnime } from '@/entities/anime/lib/selectors';
+import { getHeroAnime } from '@/entities/anime/lib/selectors';
 import { animeList } from "@/entities/anime/model/mock";
 import styles from './HomePage.module.scss';
 
@@ -13,11 +10,7 @@ import styles from './HomePage.module.scss';
 
 export const HomePage = () => {
 
-
   const heroAnime = getHeroAnime(animeList);
-  const actionAdventure = getActionAdventureAnime(animeList);
-  const dramaRomance = getDramaRomanceAnime(animeList)
-
 
   return (
     <>
@@ -28,8 +21,6 @@ export const HomePage = () => {
         <div className={styles.mainWrap}>
           <MainContent
             heroAnime={heroAnime}
-            actionAdventure={actionAdventure}
-            dramaRomance={dramaRomance}
           />
         </div>
         <div className={styles.rightPanelWrap}>

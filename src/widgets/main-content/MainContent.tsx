@@ -1,19 +1,18 @@
 import { HeroBanner } from '@/widgets/hero';
-import { AnimeSection, PopularAnimeSection } from "@/widgets/anime-section";
+import { PopularAnimeSection, GenresAnimeSection } from "@/widgets/anime-section";
 import styles from './MainContent.module.scss'
 import { TopRankedSection } from "@/widgets/top-ranked";
 import type { Anime } from "@/entities/anime/model/types";
 
 type MainContentProps = {
   heroAnime: Anime | null,
-  actionAdventure: Anime[],
-  dramaRomance: Anime[],
 }
+
+const ACTION_ADVENTURE_GENRES = ['Action', 'Adventure'];
+const DRAMA_ROMANCE_GENRES = ['Drama', 'Romance'];
 
 export const MainContent = ({
   heroAnime,
-  actionAdventure,
-  dramaRomance,
 }: MainContentProps) => {
 
   const titleId = "attack-on-titan-title"
@@ -32,8 +31,8 @@ export const MainContent = ({
         <TopRankedSection variant="inline" />
       </div>
       <PopularAnimeSection />
-      <AnimeSection title="Action & Adventure" items={actionAdventure} />
-      <AnimeSection title="Drama & Romance" items={dramaRomance} />
+      <GenresAnimeSection title="Action & Adventure" genres={ACTION_ADVENTURE_GENRES} />
+      <GenresAnimeSection title="Drama & Romance" genres={DRAMA_ROMANCE_GENRES} />
     </main>
   )
 }

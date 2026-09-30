@@ -59,7 +59,7 @@ export type AnimeListVariablesDto = {
   page: number;
   perPage: number;
   sort: AnimeSortDto[];
-  genre?: string;
+  genres?: string[];
   season?: AniListSeasonDto;
   seasonYear?: number;
 }
